@@ -1,0 +1,17 @@
+.meals {
+    background-color: var(--light-gray);
+    max-width: 50rem;
+    animation: slideFromBottom 0.7s ease-in;
+}
+.meals ul {
+    display: flex;
+    flex-direction: column;
+}
+@keyframes slideFromBottom {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,71 @@
+.auth {
+  margin: 3rem auto;
+  width: 95%;
+  max-width: 25rem;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+}
+.auth h1 {
+  text-align: center;
+  color: var(--secondary-color);
+}
+.control {
+  margin-bottom: 1rem;
+}
+.control label {
+  display: block;
+  color: var(--secondary-color);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.control input {
+  font: inherit;
+  font-weight: bold;
+  background-color: #FFF;
+  color: var(--secondary-color);
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+}
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actions button {
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 24px;
+  padding: 0.5rem 2.5rem;
+}
+
+.actions button:hover {
+  background-color: #00846A;
+}
+
+.actions .toggle {
+  margin-top: 1rem;
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: none;
+  padding: 0.15rem 1.5rem;
+}
+
+.actions .toggle:hover {
+  background-color: transparent;
+  color:#00846A;
+}

@@ -1,0 +1,19 @@
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 15px;
+    padding:  15px;
+    background-color: #d5d9da;
+}
+.xmark {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 21px;
+    cursor: pointer;
+}
+.ref-num {
+    font-size: 11px;
+    color: #2B2B2A;
+}
