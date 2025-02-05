@@ -1,5 +1,9 @@
 .cart {
     background-color: #ECF0F1;
+    color: var(--dark-gray);
+}
+.cart h1 {
+    padding-left:15px;
 }
 .cart ul {
     list-style: none;
@@ -15,6 +19,7 @@
 }
 .subtotal span {
     color: #1A84C0;
+    font-weight: bold;
 }
 .actions {
     display: flex;
@@ -29,11 +34,10 @@
     background-color: transparent;
 }
 .checkout {
-    background-color: var(--secondary-color);
-    color: #fff;
     outline: none;
-    border: none;
     border-radius: 24px;
-    cursor: pointer;
     padding: 10px 15px;
+}
+.checkout:hover {
+    background-color: #00846A;
 }

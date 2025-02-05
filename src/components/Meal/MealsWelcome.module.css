@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation: slideFromRight 0.7s ease-in;
+    animation: slideFromRight 1s ease-in;
 }
 .welcome h1 {
     margin: 1rem;
@@ -18,9 +18,10 @@
     margin:10px;
 }
 .image-container {
-    width: 150px;
-    height: 150px;
+    width: 210px;
+    height: 140px;
     position: relative;
+    overflow: hidden;
 }
 .image-container img {
     width: 100%;

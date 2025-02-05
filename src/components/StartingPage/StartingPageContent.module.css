@@ -1,3 +1,8 @@
 .starting-page {
   padding: 1rem 10%;
 }
+@media (max-width:575px) {
+  .starting-page {
+    padding: 1rem 10px;
+  }
+}

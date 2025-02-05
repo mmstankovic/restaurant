@@ -15,6 +15,8 @@ const Header = () => {
     setIsOpen((prevState) => !prevState)
   }
 
+  const closeMobileMenu = () => setIsOpen(false)
+
   const logoutUserHandler = () => {
     authCtx.logout()
   }
@@ -29,22 +31,22 @@ const Header = () => {
       </button>
       <nav className={`${classes.menu} ${isOpen ? classes.isOpen : ''}`}>
         <ul>
-          <li>
+          <li onClick={closeMobileMenu}>
             <Link to='/'>Home</Link>
           </li>
-          <li>
+          <li onClick={closeMobileMenu}>
             <Link to='/menu'>Menu</Link>
           </li>
-          {!authCtx.isLoggedIn && <li>
+          {!authCtx.isLoggedIn && <li onClick={closeMobileMenu}>
             <Link to='/auth'>Login</Link>
           </li>}
-          {authCtx.isLoggedIn && <li>
+          {authCtx.isLoggedIn && <li onClick={closeMobileMenu}>
             <Link to='/profile'>Profile</Link>
           </li>}
-          <li>
+          <li onClick={closeMobileMenu}>
             <Link to='/cart'><CartButton totalQuantity={totalQuantity}/></Link>
           </li>
-          {authCtx.isLoggedIn && <li>
+          {authCtx.isLoggedIn && <li onClick={closeMobileMenu}>
             <button onClick={logoutUserHandler}>Logout</button>
           </li>}
         </ul>

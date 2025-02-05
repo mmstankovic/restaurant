@@ -58,7 +58,7 @@ const Checkout = (props) => {
 
     return (
         <form className={classes.form} onSubmit={submitHandler}>
-            <div>
+            <div className={classes['form-col-1']}>
                 <div className={nameControlClasses}>
                     <label htmlFor="name">Your Name</label>
                     <input ref={nameInputRef} type="text" id="name"/>
@@ -70,7 +70,7 @@ const Checkout = (props) => {
                     {!formInputsValidity.street && <p className={classes['error-text']}>Please enter a valid street!</p>}
                 </div>
             </div>
-            <div>
+            <div className={classes['form-col-2']}>
                 <div className={postalCodeControlClasses}>
                     <label htmlFor="postal">Postal Code</label>
                     <input ref={postalInputRef} type="text" id="postal"/>

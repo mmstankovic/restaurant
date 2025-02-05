@@ -7,6 +7,8 @@
     background-color: #d5d9da;
 }
 .xmark {
+    display: flex;
+    align-items: center;
     background-color: transparent;
     border: none;
     outline: none;

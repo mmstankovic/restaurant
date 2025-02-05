@@ -13,20 +13,20 @@ const MealItem = (props) => {
             quantity: 1
         }))
     }
-    return <li className={classes.item}>
-        <div className={classes['col-1-2']}>
+    return (
+        <li className={classes.item}>
             <div className={classes['image-container']}>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Supreme_pizza.jpg/800px-Supreme_pizza.jpg" alt={props.title} />
+                <img src="https://www.news10.com/wp-content/uploads/sites/64/2022/06/burger-gce4714a92_1920.jpg" alt={props.title} />
             </div>
             <div className={classes.content}>
                 <div>{props.title}</div>
-                <p>{props.description}</p>
+                <p>{props.category}</p>
             </div>
-        </div>
-        <div className={classes.price}>$ {props.price.toFixed(2)}</div>
-        <div className={classes['col-2-2']}>
-            <button onClick={addItemToCartHandler}>Add to Cart</button>
-        </div>
-    </li>
+            <div className={classes.price}>$ {props.price.toFixed(2)}</div>
+            <div className={classes.action}>
+                <button onClick={addItemToCartHandler}>Add to Cart</button>
+            </div>
+        </li>
+    )
 }
 export default MealItem

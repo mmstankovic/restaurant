@@ -5,18 +5,23 @@
     align-items: center;
     text-align: center;
     color: var(--dark-gray);
+    gap: 2rem;
 }
 
-.introduction h1 {
+.text-container h1 {
     font-size: 2.5rem;
     margin: 1.5rem 0;
 }
 
-.introduction button {
+.text-container button {
     font: inherit;
     border-radius: 24px;
     font-weight: bold;
     padding: 10px 20px;
+}
+
+.text-container button:hover {
+    background-color: #00846A;
 }
 
 .image-container {
@@ -36,22 +41,6 @@
     animation: slideFromRight 1s ease-in;
 }
 
-@media (max-width:768px) {
-    .introduction {
-        grid-template-columns: auto;
-        padding: 10px;
-        gap: 1rem;
-    }
-
-    .introduction h1 {
-        font-size: 1.8rem;
-    }
-
-    .introduction h3 {
-        font-size: 1rem;
-    }
-}
-
 @keyframes slideFromLeft {
     0% {
         transform: translateX(-100%);
@@ -69,5 +58,20 @@
 
     100% {
         transform: translateX(0);
+    }
+}
+
+@media (max-width:768px) {
+    .introduction {
+        grid-template-columns: auto;
+        gap: 1rem;
+    }
+
+    .text-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .text-container h3 {
+        font-size: 1rem;
     }
 }

@@ -1,7 +1,12 @@
 .meals {
     background-color: var(--light-gray);
     max-width: 50rem;
-    animation: slideFromBottom 0.7s ease-in;
+    animation: slideFromBottom 1s ease-in;
+}
+.meals > p:first-of-type {
+    text-align: center;
+    color: var(--secondary-color);
+    font-weight: bold;
 }
 .meals ul {
     display: flex;
@@ -13,5 +18,10 @@
     }
     100% {
         transform: translateY(0);
+    }
+}
+@media (max-width:575px) {
+    .meals {
+        padding: 0.5rem;
     }
 }
