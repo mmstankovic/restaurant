@@ -2,9 +2,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 4px 15px;
-    padding:  15px;
+    padding: 1rem;
     background-color: #d5d9da;
+}
+.item-info {
+    flex: 1;
+    max-width: 25%;
+}
+.quantity-container input {
+    text-align: center;
+    width: 30px;
+    margin: 0 5px;
 }
 .xmark {
     display: flex;

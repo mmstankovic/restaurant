@@ -25,13 +25,13 @@ const CartItem = (props) => {
 
     return (
         <li className={classes['cart-item']}>
-            <div style={{width: '90%', maxWidth: '80px'}}>
+            <div className={classes['item-info']}>
                 <div>{props.title}</div>
                 <div className={classes['ref-num']}>Ref. {props.id}</div>
             </div>
-            <div>
+            <div className={classes['quantity-container']}>
                 <button onClick={removeItemFromCartHandler}>-</button>
-                <input type="text" style={{width: '30px', textAlign: 'center', marginLeft: 5, marginRight: 5}} value={quantity} disabled/>
+                <input type="text" value={quantity} disabled/>
                 <button onClick={addItemToCartHandler}>+</button>
             </div>
             <div>${props.price.toFixed(2)}</div>

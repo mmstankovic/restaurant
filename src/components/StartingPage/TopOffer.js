@@ -7,7 +7,7 @@ import classes from './TopOffer.module.css'
 
 const images = [
     { id: 'f1', title: 'Classic Spaghetti Bolognese', image: pastaImg },
-    { id: 'f2', title: 'Juicy Ribeye Steak', image: beefImg },
+    { id: 'f2', title: 'Perfect Ribeye Steak', image: beefImg },
     { id: 'f3', title: 'Juicy Gourmet Burger', image: burgerImg },
     { id: 'f4', title: 'Authentic Napoletana Pizza', image: pizzaImg },
 ]

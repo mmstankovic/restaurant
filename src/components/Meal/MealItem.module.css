@@ -29,6 +29,10 @@
     font-size: 14px;
     font-style: italic;
 }
+.content .meal-link {
+    font-size: 13px;
+    color: var(--secondary-color);
+}
 .content div,
 .price {
     font-weight: 600;
@@ -51,7 +55,7 @@
     .content div {
         font-size: 14px;
     }
-    .content p {
+    .content p, .content .meal-link {
         font-size: 12px;
     }
     .price {

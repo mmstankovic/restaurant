@@ -9,6 +9,7 @@ import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
 import MealsPage from './pages/MealsPage'
 import Cart from './components/Cart/Cart';
+import MealDetailsPage from './pages/MealDetailsPage'
 
 let isInitial = true
 
@@ -88,6 +89,9 @@ function App() {
           </Route>
           <Route path='/menu'>
             <MealsPage />
+          </Route>
+          <Route path='/meal-details/:id'>
+            <MealDetailsPage />
           </Route>
           <Route path="/cart">
             <Cart error={error}/>

@@ -1,5 +1,6 @@
 import { cartSliceActions } from "../../ridaks/cart-slice"
 import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
 import classes from './MealItem.module.css'
 
 const MealItem = (props) => {
@@ -16,13 +17,14 @@ const MealItem = (props) => {
     return (
         <li className={classes.item}>
             <div className={classes['image-container']}>
-                <img src="https://www.news10.com/wp-content/uploads/sites/64/2022/06/burger-gce4714a92_1920.jpg" alt={props.title} />
+                <img src={props.image} alt={props.title} />
             </div>
             <div className={classes.content}>
                 <div>{props.title}</div>
                 <p>{props.category}</p>
+                <Link to={`/meal-details/${props.id}`} className={classes['meal-link']}>Discover Meal</Link>
             </div>
-            <div className={classes.price}>$ {props.price.toFixed(2)}</div>
+            <div className={classes.price}>${props.price.toFixed(2)}</div>
             <div className={classes.action}>
                 <button onClick={addItemToCartHandler}>Add to Cart</button>
             </div>
