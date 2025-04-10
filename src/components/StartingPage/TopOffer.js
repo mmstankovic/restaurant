@@ -19,7 +19,7 @@ const TopOffer = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setIsVisible(false)
-        }, 3000);
+        }, 4000);
 
         return () => clearInterval(intervalId);
     }, []);
@@ -37,12 +37,12 @@ const TopOffer = () => {
 
     return (
         <div className={classes['top-offer']}>
-            <p>TOP OFFER</p>
+            <p className='heading'>TOP OFFER</p>
             <h2>The Most Popular Food</h2>
             <div className={classes['grid-container']}>
                 <div className={classes['text-container']}>
                     <h1>Unforgettable Flavors</h1>
-                    <h3>Every dish is an explosion of taste, carefully designed to satisfy your cravings. Ready for your next food adventure?</h3>
+                    <p>Every dish is an explosion of taste, carefully designed to satisfy your cravings. Ready for your next food adventure?</p>
                 </div>
                 <div className={classes['slider']}>
                     <img className={`${classes['slider-image']} ${isVisible ? classes['fade-in'] : ''}`} src={images[currentIndex].image} alt='food' />

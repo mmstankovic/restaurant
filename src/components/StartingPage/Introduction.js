@@ -10,7 +10,7 @@ const Introduction = () => {
             </div>
             <div className={classes['text-container']}>
                 <h1>Professionalism You Can Taste</h1>
-                <h3>To place your order, please log in or register.</h3>
+                <p>To place your order, please log in or register.</p>
                 <Link to='/menu'>
                     <button>Explore Menu</button>
                 </Link>

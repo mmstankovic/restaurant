@@ -3,8 +3,8 @@ import classes from './Testimonials.module.css'
 const Testimonials = () => {
     return (
         <div className={classes.testimonials}>
-            <p>OUR REVIEWS</p>
-            <h2 className={classes['testimonials-title']}>What They Say?</h2>
+            <p className='heading'>OUR REVIEWS</p>
+            <h2>What They Say?</h2>
             <ul className={classes['testimonials-list']}>
                 <li className={classes['testimonial-card']}>
                     <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Customer" className={classes['testimonial-img']} />

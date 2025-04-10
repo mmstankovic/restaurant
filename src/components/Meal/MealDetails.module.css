@@ -7,7 +7,6 @@
     align-items: center;
     gap: 0.5rem;
     font-weight: 700;
-    color: var(--secondary-color);
     margin-bottom: 2.5rem;
     cursor: pointer;
 }
@@ -39,6 +38,8 @@
 }
 .meal-price {
     font-weight: 700;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
 }
 
 .ingredients-list {
@@ -56,9 +57,13 @@
     gap: 1.5rem;
 }
 .add-btn {
-    font-weight: 600;
+    font-weight: 500;
     border-radius: 24px;
     padding: 0.5rem 1rem;
+}
+.quantity {
+    display: flex;
+    align-items: center;
 }
 .quantity button {
     padding: 5px 10px;

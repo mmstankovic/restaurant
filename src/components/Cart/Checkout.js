@@ -49,6 +49,11 @@ const Checkout = (props) => {
             postalCode: enteredPostalCode,
             city: enteredCity
         })
+
+        nameInputRef.current.value = ''
+        streetInputRef.current.value = ''
+        postalInputRef.current.value = ''
+        cityInputRef.current.value = ''
     }
 
     const nameControlClasses = `${classes.control} ${formInputsValidity.name ? '' : classes.invalid}`
@@ -57,36 +62,39 @@ const Checkout = (props) => {
     const cityControlClasses = `${classes.control} ${formInputsValidity.city ? '' : classes.invalid}`
 
     return (
-        <form className={classes.form} onSubmit={submitHandler}>
-            <div className={classes['form-col-1']}>
-                <div className={nameControlClasses}>
-                    <label htmlFor="name">Your Name</label>
-                    <input ref={nameInputRef} type="text" id="name"/>
-                    {!formInputsValidity.name && <p className={classes['error-text']}>Please enter a valid name!</p>}
+        <>
+            {props.status && <p className={classes['message-status']}>{props.status}</p>}
+            {!props.status && <form className={classes.form} onSubmit={submitHandler}>
+                <div className={classes['form-col-1']}>
+                    <div className={nameControlClasses}>
+                        <label htmlFor="name">Your Name</label>
+                        <input ref={nameInputRef} type="text" id="name"/>
+                        {!formInputsValidity.name && <p className={classes['error-text']}>Please enter a valid name!</p>}
+                    </div>
+                    <div className={streetControlClasses}>
+                        <label htmlFor="street">Street</label>
+                        <input ref={streetInputRef} type="text" id="street"/>
+                        {!formInputsValidity.street && <p className={classes['error-text']}>Please enter a valid street!</p>}
+                    </div>
                 </div>
-                <div className={streetControlClasses}>
-                    <label htmlFor="street">Street</label>
-                    <input ref={streetInputRef} type="text" id="street"/>
-                    {!formInputsValidity.street && <p className={classes['error-text']}>Please enter a valid street!</p>}
+                <div className={classes['form-col-2']}>
+                    <div className={postalCodeControlClasses}>
+                        <label htmlFor="postal">Postal Code</label>
+                        <input ref={postalInputRef} type="text" id="postal"/>
+                        {!formInputsValidity.postalCode && <p className={classes['error-text']}>Please enter a valid postal code!</p>}
+                    </div>
+                    <div className={cityControlClasses}>
+                        <label htmlFor="city">City</label>
+                        <input ref={cityInputRef} type="text" id="city"/>
+                        {!formInputsValidity.city && <p className={classes['error-text']}>Please enter a valid city!</p>}
+                    </div>
+                    <div className={classes.actions}>
+                        <button type="button" onClick={props.onCancel}>Cancel</button>
+                        <button className={classes.submit} disabled={props.loading}>{props.loading ? 'Ordering...' : 'Confirm'}</button>
+                    </div>
                 </div>
-            </div>
-            <div className={classes['form-col-2']}>
-                <div className={postalCodeControlClasses}>
-                    <label htmlFor="postal">Postal Code</label>
-                    <input ref={postalInputRef} type="text" id="postal"/>
-                    {!formInputsValidity.postalCode && <p className={classes['error-text']}>Please enter a valid postal code!</p>}
-                </div>
-                <div className={cityControlClasses}>
-                    <label htmlFor="city">City</label>
-                    <input ref={cityInputRef} type="text" id="city"/>
-                    {!formInputsValidity.city && <p className={classes['error-text']}>Please enter a valid city!</p>}
-                </div>
-                <div className={classes.actions}>
-                    <button type="button" onClick={props.onCancel}>Cancel</button>
-                    <button className={classes.submit}>Confirm</button>
-                </div>
-            </div>
-        </form>
+            </form>}
+        </>
     )
 }
 export default Checkout

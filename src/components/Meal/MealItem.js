@@ -1,12 +1,18 @@
+import { useContext } from "react"
+import AuthContext from "../../store/auth-context"
 import { cartSliceActions } from "../../ridaks/cart-slice"
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import classes from './MealItem.module.css'
 
 const MealItem = (props) => {
+    const authCtx = useContext(AuthContext)
     const dispatch = useDispatch()
 
     const addItemToCartHandler = () => {
+        if(!authCtx.isLoggedIn) {
+            return
+        }
         dispatch(cartSliceActions.addItemToCart({
             id: props.id,
             title: props.title,
@@ -17,7 +23,7 @@ const MealItem = (props) => {
     return (
         <li className={classes.item}>
             <div className={classes['image-container']}>
-                <img src={props.image} alt={props.title} />
+                <img src={require(`../../images/${props.image}`).default} alt={props.title} />
             </div>
             <div className={classes.content}>
                 <div>{props.title}</div>
@@ -26,7 +32,7 @@ const MealItem = (props) => {
             </div>
             <div className={classes.price}>${props.price.toFixed(2)}</div>
             <div className={classes.action}>
-                <button onClick={addItemToCartHandler}>Add to Cart</button>
+                <button className={!authCtx.isLoggedIn ? 'disabled-btn' : undefined} disabled={!authCtx.isLoggedIn} onClick={addItemToCartHandler}>Add to Cart</button>
             </div>
         </li>
     )

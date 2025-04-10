@@ -42,7 +42,6 @@ const Auth = () => {
       }
     })
     .then(data => {
-      console.log(data)
       const expirationTime = new Date(new Date().getTime() + (+data.expiresIn) * 1000)
       authCtx.login(data.idToken, expirationTime.toISOString())
       //history.replace('/')
@@ -51,7 +50,6 @@ const Auth = () => {
       alert(err.message)
     })
 
-    console.log(email, password)
     }
 
     return (

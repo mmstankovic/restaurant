@@ -1,10 +1,11 @@
 import foodOrdering from '../../images/food-ordering.png'
+import mealImg from '../../images/meal.png'
 import classes from './OurService.module.css'
 
 const OurService = () => {
     return (
         <div className={classes.service}>
-            <p>OUR SERVICE</p>
+            <p className='heading'>OUR SERVICE</p>
             <h2>How Does It Work?</h2>
             <ul className={classes.steps}>
                 <div className={classes.step}>
@@ -23,7 +24,7 @@ const OurService = () => {
                 </div>
                 <div className={classes.step}>
                     <div className={classes['image-container']}>
-                        <img src='https://mobi.foodzone.bg/onboarding-2.png' alt='service' />
+                        <img src={mealImg} alt='service' />
                     </div>
                     <h3>Best Quality</h3>
                     <p>Not only fast for us quality is <br/> also number one.</p>

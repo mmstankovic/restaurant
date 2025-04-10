@@ -3,10 +3,7 @@
     text-align: center;
     margin: 3rem 0;
 }
-.service > p {
-    font-weight: bold;
-    color:var(--secondary-color);
-}
+
 .steps {
     display: grid;
     grid-template-columns: auto auto auto;

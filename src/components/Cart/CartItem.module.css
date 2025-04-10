@@ -9,10 +9,19 @@
     flex: 1;
     max-width: 25%;
 }
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
 .quantity-container input {
     text-align: center;
     width: 30px;
     margin: 0 5px;
+}
+.item-price {
+    min-width: 50px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
 }
 .xmark {
     display: flex;
@@ -26,4 +35,15 @@
 .ref-num {
     font-size: 11px;
     color: #2B2B2A;
+}
+@media (max-width:575px) {
+    .cart-item {
+        padding: 1rem 0.5rem;
+    }
+    .quantity-container input {
+        width:20px;
+    }
+    .item-price {
+        font-size: 14px;
+    }
 }

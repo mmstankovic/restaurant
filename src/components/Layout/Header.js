@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../store/auth-context';
 import CartButton from '../Cart/CartButton';
+import { RiMenu3Fill } from "react-icons/ri";
+import { RiCloseFill } from "react-icons/ri";
 import classes from './Header.module.css';
 import Wave from './Wave'
 
@@ -23,34 +25,36 @@ const Header = () => {
 
   return (
     <header className={classes.header}>
-      <Link to='/'>
-        <div className={classes.logo}>We deliver</div>
-      </Link>
-      <button className={classes.menuButton} onClick={toggleMenuHandler}>
-        ☰
-      </button>
-      <nav className={`${classes.menu} ${isOpen ? classes.isOpen : ''}`}>
-        <ul>
-          <li onClick={closeMobileMenu}>
-            <Link to='/'>Home</Link>
-          </li>
-          <li onClick={closeMobileMenu}>
-            <Link to='/menu'>Menu</Link>
-          </li>
-          {!authCtx.isLoggedIn && <li onClick={closeMobileMenu}>
-            <Link to='/auth'>Login</Link>
-          </li>}
-          {authCtx.isLoggedIn && <li onClick={closeMobileMenu}>
-            <Link to='/profile'>Profile</Link>
-          </li>}
-          <li onClick={closeMobileMenu}>
-            <Link to='/cart'><CartButton totalQuantity={totalQuantity}/></Link>
-          </li>
-          {authCtx.isLoggedIn && <li onClick={closeMobileMenu}>
-            <button onClick={logoutUserHandler}>Logout</button>
-          </li>}
-        </ul>
-      </nav>
+      <div className={classes['header-container']}>
+        <Link to='/'>
+          <div className={classes.logo}>Wilma ristorante</div>
+        </Link>
+        <button className={classes.menuButton} onClick={toggleMenuHandler}>
+          {isOpen ? <RiCloseFill /> : <RiMenu3Fill />}
+        </button>
+        <nav className={`${classes.menu} ${isOpen ? classes.isOpen : ''}`}>
+          <ul>
+            <li onClick={closeMobileMenu}>
+              <Link to='/'>HOME</Link>
+            </li>
+            <li onClick={closeMobileMenu}>
+              <Link to='/menu'>MENU</Link>
+            </li>
+            {!authCtx.isLoggedIn && <li onClick={closeMobileMenu}>
+              <Link to='/auth'>LOGIN</Link>
+            </li>}
+            {authCtx.isLoggedIn && <li onClick={closeMobileMenu}>
+              <Link to='/profile'>PROFILE</Link>
+            </li>}
+            {authCtx.isLoggedIn && <li onClick={closeMobileMenu}>
+              <Link to='/cart'><CartButton totalQuantity={totalQuantity}/></Link>
+            </li>}
+            {authCtx.isLoggedIn && <li onClick={closeMobileMenu}>
+              <button onClick={logoutUserHandler}>LOGOUT</button>
+            </li>}
+          </ul>
+        </nav>
+      </div>
      <Wave />
     </header>
   );

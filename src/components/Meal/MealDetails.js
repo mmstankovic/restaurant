@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useDispatch } from "react-redux"
+import AuthContext from "../../store/auth-context"
 import { cartSliceActions } from '../../ridaks/cart-slice'
 import { IoMdArrowRoundBack } from "react-icons/io";
 import LoadingSpinner from '../UI/LoadingSpinner'
@@ -12,6 +13,7 @@ const MealDetails = () => {
     const [meal, setMeal] = useState(null)
     const [quantity, setQuantity] = useState(1)
     const dispatch = useDispatch()
+    const authCtx = useContext(AuthContext)
 
     useEffect(() => {
         const fetchMealDetails = async () => {
@@ -34,17 +36,20 @@ const MealDetails = () => {
     }, [id])
 
     const increaseQuantity = () => {
-        setQuantity((prevState) => prevState + 1)
+        setQuantity((prevState) => prevState < 5 ? prevState + 1 : 5)
     }
     const decreaseQuantity = () => {
         setQuantity((prevState) => prevState > 1 ? (prevState - 1) : 1)
     }
 
     const addItemHandler = () => {
+        if(!authCtx.isLoggedIn) {
+            return
+        }
         dispatch(cartSliceActions.addItemToCart({
-            id: 'p6',
-            title: 'Capricciosa',
-            price: 9.10,
+            id: meal.id,
+            title: meal.title,
+            price: meal.price,
             quantity: quantity
         }))
     }
@@ -81,9 +86,8 @@ const MealDetails = () => {
                             <button onClick={decreaseQuantity}>-</button>
                             <input type="text" disabled value={quantity} />
                             <button onClick={increaseQuantity}>+</button>
-
                         </div>
-                        <button className={classes['add-btn']} onClick={addItemHandler}>Add to Cart</button>
+                        <button className={`${classes['add-btn']} ${!authCtx.isLoggedIn ? 'disabled-btn' : undefined}`} onClick={addItemHandler}>Add to Cart</button>
                     </div>
                 </div>
             </div>

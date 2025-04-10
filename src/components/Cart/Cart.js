@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { cartSliceActions } from "../../ridaks/cart-slice"
 import CartItem from "./CartItem"
 import Modal from "../UI/Modal"
 import Checkout from './Checkout'
@@ -10,8 +11,11 @@ const Cart = (props) => {
     const cartItems = useSelector(state => state.cart.items)
     const totalAmount = useSelector(state => state.cart.totalAmount)
     const history = useHistory()
+    const dispatch = useDispatch()
 
     const [isCheckout, setIsCheckout] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [status, setStatus] = useState('')
 
     const allProduts = cartItems.map(product => <CartItem 
         key={product.id} 
@@ -22,18 +26,37 @@ const Cart = (props) => {
         quantity={product.quantity}
     />)
 
-    const submitOrderHandler = (userData) => {
-        fetch(`${process.env.REACT_APP_FIREBASE_URL}/orders.json`, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                user: userData,
-                items: cartItems
+    const submitOrderHandler = async (userData) => {
+        setLoading(true)
+        try {
+            const res = await fetch(`${process.env.REACT_APP_FIREBASE_URL}/orders.json`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    user: userData,
+                    items: cartItems
+                })
             })
-        })
+            const data = await res.json()
+    
+            if(!res.ok) {
+                throw new Error('Sending order failed.')
+            }
+            if(data.name) {
+                setStatus('You order has been placed.')
+                dispatch(cartSliceActions.clearCart())
+            }
+            setLoading(false)
+        } catch (err) {
+            setStatus('The service is temporarily unavailable, please try again later.')
+            console.log(err.message)
+            setLoading(false)
+        }
+        
     }
     
     const closeCartHandler = () => {
+        setStatus('')
         history.replace('/menu')
     }
 
@@ -57,12 +80,12 @@ const Cart = (props) => {
         <Modal className={classes.cart} onClose={closeCartHandler}>
             <h1>Shopping Cart</h1>
             {content}
-            <div className={classes.subtotal}>Subtotal: <span>{totalAmount.toFixed(2)} $</span></div>
+            <div className={classes.subtotal}>Subtotal: <span>${totalAmount.toFixed(2)}</span></div>
             <div className={classes.actions}>
-                <button className={classes['back-button']} onClick={closeCartHandler}><i class="fa-solid fa-arrow-left-long"></i> Back to Shop</button>
-                {!isCheckout && <button className={classes.checkout} onClick={orderHandler}>Order</button>}
+                <button className={classes['back-button']} onClick={closeCartHandler}><i className="fa-solid fa-arrow-left-long"></i> Back to Shop</button>
+                {!isCheckout && (cartItems.length > 0) && <button className={classes.checkout} onClick={orderHandler}>Order</button>}
             </div>
-           {isCheckout && <Checkout onCancel={cancelOrderHandler} onConfirm={submitOrderHandler} />}
+           {isCheckout && (cartItems.length > 0) && <Checkout onCancel={cancelOrderHandler} onConfirm={submitOrderHandler} loading={loading} status={status}/>}
         </Modal>   
     )
 }

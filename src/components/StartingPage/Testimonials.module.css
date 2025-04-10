@@ -3,16 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: var(--dark-gray);
     margin: 3rem 0;
 }
-.testimonials > p {
-    font-weight: bold;
-    color:var(--secondary-color);
-}
-.testimonials-title {
-    text-align: center;
-    color: var(--dark-gray);
-}
+
 .testimonials-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -42,7 +36,6 @@ cite {
     display: block;
     margin-left: 40px;
     font-weight: bold;
-    color: var(--dark-gray);
 }
 @media (max-width:768px) {
     .testimonials-list {

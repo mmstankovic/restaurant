@@ -1,8 +1,10 @@
+import {useState, useEffect} from 'react'
 import { Prompt } from 'react-router-dom'
 import useInput from '../../hooks/use-input'
 import classes from './AuthForm.module.css'
 
 const AuthForm2 = (props) => {
+    const [isVisible, setIsVisible] = useState(false)
     const {
         value: enteredEmail,
         isValid: enteredEmailIsValid,
@@ -21,9 +23,13 @@ const AuthForm2 = (props) => {
         blurInputHandler: passwordInputBlurHandler
     } = useInput(value => value.trim() !== '')
 
+    useEffect(() => {
+        setIsVisible(true)
+    },[])
+
     let formIsValid = false
 
-    if(enteredEmailIsValid && enteredPasswordIsValid) {//
+    if(enteredEmailIsValid && enteredPasswordIsValid) {
         formIsValid = true
     }
 
@@ -38,7 +44,7 @@ const AuthForm2 = (props) => {
     }
 
     return (
-        <div className={classes.auth}>
+        <div className={`${classes.auth} ${isVisible ? classes.visible : ''}`}>
             <Prompt when={emailIsTouched || passwordIsTouched} message={() => 'Are you sure want to leave? All data will be lost!'}/>
              <h1>{props.isLogin ? 'Login' : 'Sign Up'}</h1>
              <form onSubmit={submitFormHandler}>
@@ -68,16 +74,3 @@ const AuthForm2 = (props) => {
     )
 }
 export default AuthForm2
-
- /*const [enteredEmail, setEnteredEmail] = useState('')
-    const [emailInputIsTouched, setEmailInputIsTouched] = useState(false)
-
-    const enteredEmailIsValid = enteredEmail.includes('@')
-    const emailInputIsInvalid = !enteredEmailIsValid && emailInputIsTouched*/
-
- /*const emailChangeHandler = e => {
-        setEnteredEmail(e.target.value)
-    }
-    const emailInputBlurHandler = () => {
-        setEmailInputIsTouched(true)
-    }*/

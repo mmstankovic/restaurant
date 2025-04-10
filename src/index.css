@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
 
 :root {
   --primary-color: #FFC244;
@@ -12,7 +12,7 @@
 }
 
 body {
-  font-family: 'Open Sans', 'Lato', sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -23,8 +23,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: 'Lato', sans-serif;
+h6, button, a {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
 }
 
 button {
@@ -40,4 +41,13 @@ ul {
 }
 a {
   text-decoration: none;
+  color: var(--secondary-color);
+}
+.heading {
+  font-weight: bold;
+  color:var(--secondary-color);
+}
+.disabled-btn {
+  cursor: not-allowed;
+  opacity: 0.6;
 }

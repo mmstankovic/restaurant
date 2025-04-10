@@ -8,6 +8,13 @@
   padding: 1rem;
   text-align: center;
   color: #fff;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.5s ease-out;
+}
+.auth.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .auth h1 {
   text-align: center;
@@ -44,8 +51,8 @@
 
 .actions button {
   cursor: pointer;
-  font: inherit;
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 1rem;
   color: #fff;
   background-color: var(--secondary-color);
   border: none;

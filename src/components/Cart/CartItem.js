@@ -34,7 +34,7 @@ const CartItem = (props) => {
                 <input type="text" value={quantity} disabled/>
                 <button onClick={addItemToCartHandler}>+</button>
             </div>
-            <div>${props.price.toFixed(2)}</div>
+            <div className={classes['item-price']}>${props.price.toFixed(2)}</div>
             <button className={classes.xmark} onClick={cancelTheItemHandler}><FaTimes style={{color: '#646464'}}/></button>
         </li>
     )

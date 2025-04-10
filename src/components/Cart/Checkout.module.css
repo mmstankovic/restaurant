@@ -1,3 +1,7 @@
+.message-status {
+  text-align: center;
+  font-weight: 600;
+}
 .form {
   margin: 0.5rem 0;
   max-height: 12rem;
@@ -39,10 +43,9 @@
 }
 
 .actions button {
-  font: inherit;
   background-color: rgba(255, 194, 68, 0.7);
   border-radius: 24px;
-  padding: 5px 8px;
+  padding: 0.5rem 1rem;
 }
 
 .actions button:hover,
@@ -57,6 +60,11 @@
 .actions .submit:hover,
 .actions .submit:active {
   background-color: #00846A;
+}
+
+.actions .submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .invalid input {

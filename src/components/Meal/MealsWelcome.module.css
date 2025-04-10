@@ -16,6 +16,7 @@
 }
 .welcome p {
     margin:10px;
+    font-weight: 500;
 }
 .image-container {
     width: 210px;

@@ -4,23 +4,17 @@
   width: 100%;
   height: 30vh;
   background-color: var(--primary-color);
+  padding: 2rem 10%;
+}
+.header-container {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 1rem 10%;
+  align-items: center;
 }
-/* .wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 200px;
-  fill: #FFFFFF;
-} */
+
 .logo {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lobster', cursive;
   font-size: 2rem;
-  color: var(--secondary-color);
   margin: 0;
 }
 .menu ul {
@@ -29,12 +23,11 @@
   gap:1.5rem;
 }
 .menu a {
-  color: var(--secondary-color);
-  font-weight: bold;
+  font-weight: 500;
 }
 .menu button {
-  font: inherit;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 500;
   border-radius: 24px;
   padding: 8px;
 }
@@ -52,6 +45,7 @@
 @media (max-width:768px) {
   .header {
     height:50vh;
+    padding: 1rem 10%;
   }
   .menuButton {
     display: flex;
@@ -79,6 +73,7 @@
   }
   .menu.isOpen {
         left:0;
+        z-index:2;
   }
   .menu button {
     padding:6px;

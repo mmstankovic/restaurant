@@ -12,6 +12,12 @@
     display: flex;
     flex-direction: column;
 }
+.http-error {
+    text-align: center;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin: 2.5rem 0;
+}
 @keyframes slideFromBottom {
     0% {
         transform: translateY(100%);

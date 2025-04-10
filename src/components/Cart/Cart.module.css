@@ -12,6 +12,8 @@
     overflow: auto;
 }
 .subtotal {
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
     text-align: right;
     margin: 20px 0;
 }
@@ -34,8 +36,13 @@
 .checkout {
     outline: none;
     border-radius: 24px;
-    padding: 10px 15px;
+    padding: 0.5rem 1rem;
 }
 .checkout:hover {
     background-color: #00846A;
+}
+@media (max-width:575px) {
+    .cart {
+        padding: 0.5rem;
+    }
 }
